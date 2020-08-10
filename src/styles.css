@@ -6,7 +6,12 @@
   --subheader-color: #000;
   --text-color: #292b2c;
   --background-color: #fff;
+}
+
+html {
+  scroll-behavior: smooth;
   font-family: "Source Sans Pro";
+  height: 100%;
 }
 
 #navbar {

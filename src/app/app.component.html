@@ -22,22 +22,16 @@
     />
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/home" routerLinkActive="active"
-          >Home</a
-        >
+        <a class="nav-link" href="#home" routerLinkActive="active">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/login" routerLinkActive="active"
-          >Login</a
-        >
+        <a class="nav-link" href="#login" routerLinkActive="active">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/about" routerLinkActive="active"
-          >IVD24</a
-        >
+        <a class="nav-link" href="#about" routerLinkActive="active">IVD24</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/register" routerLinkActive="active"
+        <a class="nav-link" href="#register" routerLinkActive="active"
           >Registrieren</a
         >
       </li>
@@ -45,14 +39,9 @@
   </div>
 </nav>
 
-<app-home></app-home>
-<app-login></app-login>
-<app-about></app-about>
-<app-register></app-register>
+<app-home id="home"></app-home>
+<app-login id="login"></app-login>
+<app-about id="about"></app-about>
+<app-register id="register"></app-register>
 
 <router-outlet></router-outlet>
-
-<img
-  src="https://www.ivd24immobilien.de/wp-content/themes/ivd24/img/logo.png"
-  alt=""
-/>
