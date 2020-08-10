@@ -1,3 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarTogglerDemo01"
+    aria-controls="navbarTogglerDemo01"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse">
+    <img
+      src="https://www.ivd24immobilien.de/wp-content/themes/ivd24/img/logo.png"
+      alt="IVD24 Logo"
+      id="ivd24-logo"
+    />
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active"
+          >Home</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login" routerLinkActive="active"
+          >Login</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about" routerLinkActive="active"
+          >IVD24</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/register" routerLinkActive="active"
+          >Registrieren</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<app-home></app-home>
+<app-login></app-login>
+<app-about></app-about>
+<app-register></app-register>
+
 <router-outlet></router-outlet>
 
-<button class="btn btn-primary">Test Button</button>
+<img
+  src="https://www.ivd24immobilien.de/wp-content/themes/ivd24/img/logo.png"
+  alt=""
+/>

@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --accent-blue-color: #0c3a67;
+  --accent-green-color: #94c120;
+  --accent-grey-color: #f0f0ef;
+  --header-color: #717171;
+  --subheader-color: #000;
+  --text-color: #292b2c;
+  --background-color: #fff;
+  font-family: "Source Sans Pro";
+}
+
+#navbar {
+  border-bottom: 3px solid var(--accent-green-color);
+}
+
+#navbar a {
+  color: var(--header-color);
+}
+
+#navbar a:hover {
+  color: var(--accent-green-color);
+}
+
+#ivd24-logo {
+  height: 42px;
+}
