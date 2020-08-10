@@ -9,7 +9,13 @@ import { AboutComponent } from './about/about.component';
 import { RegisterComponent } from './register/register.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, AboutComponent, RegisterComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    LoginComponent,
+    AboutComponent,
+    RegisterComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
