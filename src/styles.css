@@ -1,5 +1,5 @@
 :root {
-  --accent-blue-color: #0c3a67;
+  --accent-blue-color: #1460ac;
   --accent-green-color: #94c120;
   --accent-grey-color: #f0f0ef;
   --header-color: #717171;
@@ -28,4 +28,33 @@ html {
 
 #ivd24-logo {
   height: 42px;
+}
+
+div a {
+  color: var(--accent-blue-color);
+}
+
+.message-btn {
+  background-color: var(--accent-green-color);
+  border: none;
+}
+
+.btn-light {
+  border-color: var(--accent-green-color);
+}
+
+.badge {
+  background-color: var(--accent-blue-color);
+}
+
+.user-img {
+  border-radius: 50%;
+  width: 100%;
+}
+
+hr {
+  color: var(--accent-blue-color);
+  background-color: var(--accent-blue-color);
+  border: none;
+  height: 3px;
 }

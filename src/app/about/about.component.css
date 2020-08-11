@@ -1,0 +1,21 @@
+.container {
+  padding: 3% 0;
+}
+
+.box {
+  background-color: var(--accent-grey-color);
+  width: 100%;
+}
+
+h3 {
+  color: var(--accent-blue-color);
+}
+
+button {
+  opacity: 1;
+}
+
+button:hover {
+  background-color: var(--accent-green-color);
+  opacity: 0.8;
+}
