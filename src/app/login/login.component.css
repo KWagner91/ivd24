@@ -1,0 +1,9 @@
+.login {
+  background-color: var(--accent-grey-color);
+  padding: 1%;
+}
+
+button {
+  background-color: var(--accent-blue-color);
+  border: none;
+}
