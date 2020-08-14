@@ -6,15 +6,20 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Erstellung einer Landing-Page (ResponsiveWebdesign) für die zukünftige Kooperation mit Ebay Kleinanzeigen.
 
-1. Als Template Grundlage verwenden Sie bitte das Layout des ivd24immobilien Portals und entwickeln eine eigene Idee zum Aufbau einer Content Seite/Landingpage. 
+1. Als Template Grundlage verwenden Sie bitte das Layout des ivd24immobilien Portals und entwickeln eine eigene Idee zum Aufbau einer Content Seite/Landingpage.
 2. Setzten Sie bis zu 4 Headlines und Content Blöcke ein, die neben Aufzählungen auch andere wichtige Formatierungsmöglichkeiten beinhalten sollte.
+
 - Jede Headline soll einem Menüpunkt im Kopfbereich entsprechen.
 - Beim Klick auf einen Menüpunkt soll „elegant“ an die entsprechende Stelleder Headlinegescrollt werden.
+
 3. Bauen Sie ein Login-Formular, welches in Ihrer Content Seite beim zweiten Menüpunktdargestellt wird.
-- Senden Sie den Benutzername und das Passwort als POST Parameter an https://www.ivd24immobilien.de/login. 
-- Verwenden Sie bei den namen der Inputfelder bitte "username" und "password". 
+
+- Senden Sie den Benutzername und das Passwort als POST Parameter an https://www.ivd24immobilien.de/login.
+- Verwenden Sie bei den namen der Inputfelder bitte "username" und "password".
+
 4. Erstellen Sie ein Registrierungsformular, das entsprechend des folgenden Formulars unter https://www.ivd24immobilien.de/register aufgebaut ist und die selben Felder beinhaltet. Dieses Formular soll unter dem vierten Menüpunkt zu sehen sein.
-5. Senden Sie die Daten aus dem Registrierungsformular, als REST/SOAP POST Daten an eine API URL die Sie ebenfalls selbst programmieren. Ihre API Response URL empfängt die Daten und gibt diese, wenn alles korrekt ist mittels ECHO wieder aus. Folgende Funktion soll die API übernehmen: 
+5. Senden Sie die Daten aus dem Registrierungsformular, als REST/SOAP POST Daten an eine API URL die Sie ebenfalls selbst programmieren. Ihre API Response URL empfängt die Daten und gibt diese, wenn alles korrekt ist mittels ECHO wieder aus. Folgende Funktion soll die API übernehmen:
+
 - Response Code 200 wenn alles OK (inkl. Echo ausgabe aller Daten) und Email zur Bestätigung anden Kunden. Sie haben Sich erfolgreich registriert.
 - Speichern Sie die Daten in eine mySQLDatenbank
 - Response Code 4XX wenn Probleme auftreten
@@ -22,6 +27,15 @@ Erstellung einer Landing-Page (ResponsiveWebdesign) für die zukünftige Koopera
 - Pflichtfelder sollen geprüft werden
 - Korrekte Schreibweise, so weit wie möglich soll geprüft werden
 - POST und RET (Response) bitte als JSON
+
+## Resources used
+
+- [Angular Documentation](https://angular.io/docs)
+- [Bootstrap Documentation](https://getbootstrap.com/docs/4.5/getting-started/introduction/)
+- [Angular Forms](https://www.tutorialspoint.com/angular4/angular4_forms.htm)
+- [MySQL Server](https://dev.mysql.com/doc/refman/8.0/en/tutorial.html)
+- [MySQL Database Creation](https://linuxize.com/post/how-to-show-databases-in-mysql/)
+- [PHP Backend](https://www.techiediaries.com/angular/angular-9-php-mysql-database/)
 
 ## Development server
 
