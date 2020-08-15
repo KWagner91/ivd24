@@ -1,1 +1,9 @@
 @import "..\login\login.component.css";
+
+.form-check {
+  margin: 3% 0;
+}
+
+svg {
+  color: var(--accent-green-color);
+}

@@ -1,10 +1,10 @@
-.container {
-  padding: 3% 0;
-}
-
 .box {
   background-color: var(--accent-grey-color);
   width: 100%;
+}
+
+.info {
+  padding: 2% 0;
 }
 
 h3 {

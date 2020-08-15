@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <h1>Login</h1>
+  <h2>Login</h2>
   <p class="text-justify">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis placerat dolor
     et lectus tincidunt venenatis at vitae quam. Proin condimentum elit vitae
@@ -19,38 +19,42 @@
     luctus orci in ante interdum, quis dictum massa sagittis. Nullam in ex sit
     amet augue luctus bibendum eu vitae mi.
   </p>
-</div>
 
-<div class="container background-container">
-  <h4>Einloggen</h4>
-  <hr />
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="user">Benutzername: </label>
-        <input
-          type="text"
-          id="user"
-          class="form-control"
-          formControlName="username"
-          placeholder="Benutzername"
-          required
-        />
+  <div class="background-container">
+    <h4>Einloggen</h4>
+    <hr />
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="user">Benutzername: </label>
+          <input
+            type="text"
+            id="user"
+            class="form-control"
+            formControlName="username"
+            placeholder="Benutzername"
+            required
+          />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="password">Passwort: </label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            formControlName="password"
+            placeholder="Passwort"
+            required
+          />
+        </div>
       </div>
-      <div class="form-group col-md-6">
-        <label for="password">Passwort: </label>
-        <input
-          type="password"
-          id="password"
-          class="form-control"
-          formControlName="password"
-          placeholder="Passwort"
-          required
-        />
-      </div>
-    </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">
-      Anmelden
-    </button>
-  </form>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!loginForm.valid"
+      >
+        Anmelden
+      </button>
+    </form>
+  </div>
 </div>

@@ -7,14 +7,21 @@
   background-size: cover;
 }
 
-h1,
+h1 {
+  text-align: center;
+  padding: 1%;
+  color: var(--accent-blue-color);
+}
+
 h3 {
   color: var(--header-color);
   text-align: center;
-  padding: 1.5%;
+  padding: 1%;
 }
 
 .header {
   background: var(--accent-grey-color);
   opacity: 0.8;
+  width: 80%;
+  margin: 0 auto;
 }
