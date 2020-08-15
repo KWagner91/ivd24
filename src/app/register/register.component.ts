@@ -11,6 +11,9 @@ import { ApiService } from '../api.service';
 export class RegisterComponent implements OnInit {
   constructor(private apiService: ApiService) {}
 
+  passwordEntered: String;
+  passwordEnteredRepeat: String;
+
   ngOnInit(): void {}
 
   registerForm = new FormGroup({
@@ -32,8 +35,24 @@ export class RegisterComponent implements OnInit {
   });
 
   onSubmit(form) {
-    this.apiService.createPolicy(form.value).subscribe((user: User) => {
-      console.log('Policy created, ', user);
-    });
+    if (this.passwordEntered === this.passwordEnteredRepeat) {
+      this.apiService.createPolicy(form.value).subscribe((user: User) => {
+        console.log('Policy created, ', user);
+        alert('Sie haben sich erfolgreich registriert!');
+      });
+    } else {
+      alert('Bitte wiederholen Sie Ihre Passworteingabe');
+    }
+  }
+
+  /*
+  phone number fields should only accept numbers (type="number" does not work in Angular): https://stackoverflow.com/questions/41465542/angular2-input-field-to-accept-only-numbers
+  */
+  numberOnly(event): boolean {
+    const charCode = event.which ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
   }
 }

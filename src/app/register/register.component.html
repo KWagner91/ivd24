@@ -90,7 +90,9 @@
       Vergleichen Sie bis zu 5 Immobilien Ihrer Wahl.
     </div>
   </div>
+
   <hr />
+
   <form #f="ngForm" [formGroup]="registerForm" (ngSubmit)="onSubmit(f)">
     <div class="row">
       <div class="col-md-6">
@@ -474,6 +476,7 @@
         <div class="form-group">
           <input
             type="text"
+            (keypress)="numberOnly($event)"
             id="phone"
             class="form-control"
             formControlName="phone"
@@ -483,6 +486,7 @@
         <div class="form-group">
           <input
             type="text"
+            (keypress)="numberOnly($event)"
             id="mobilePhone"
             class="form-control"
             formControlName="mobilePhone"
@@ -526,6 +530,7 @@
             class="form-control"
             formControlName="password"
             placeholder="Passwort (mind 8 Zeichen) *"
+            [(ngModel)]="passwordEntered"
             required
           />
         </div>
@@ -537,8 +542,18 @@
             formControlName="passwordRepeat"
             placeholder="Passtwort wiederholen *"
             minlength="8"
+            [(ngModel)]="passwordEnteredRepeat"
             required
           />
+        </div>
+        <div
+          *ngIf="
+            passwordEnteredRepeat.length >= 8 &&
+            passwordEntered !== passwordEnteredRepeat
+          "
+          class="alert alert-danger"
+        >
+          Das Passwort stimmt nicht überein.
         </div>
         <p>
           Mit * versehene Felder sind Pflichtfelder.
