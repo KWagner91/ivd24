@@ -1,7 +1,7 @@
 <div class="container mt-5 mb-5 background-container">
   <h2>Registrieren</h2>
   <hr />
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <form #f="ngForm" [formGroup]="registerForm" (ngSubmit)="onSubmit(f)">
     <div class="row">
       <div class="col-6">
         <h5>Stammdaten</h5>

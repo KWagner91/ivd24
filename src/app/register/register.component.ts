@@ -1,5 +1,7 @@
+import { User } from './../user';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-register',
@@ -7,7 +9,7 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  constructor() {}
+  constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {}
 
@@ -27,10 +29,11 @@ export class RegisterComponent implements OnInit {
     userName: new FormControl(''),
     password: new FormControl(''),
     passwordRepeat: new FormControl(''),
-    agb: new FormControl(''),
   });
 
-  onSubmit() {
-    console.log(JSON.stringify(this.registerForm.value));
+  onSubmit(form) {
+    this.apiService.createPolicy(form.value).subscribe((user: User) => {
+      console.log('Policy created, ', user);
+    });
   }
 }

@@ -1,6 +1,6 @@
+import { User } from './user';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Policy } from './policy';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,10 +11,10 @@ export class ApiService {
 
   PHP_API_SERVER = 'http://127.0.0.1:8080';
 
-  createPolicy(policy: Policy): Observable<Policy> {
-    return this.httpClient.post<Policy>(
+  createPolicy(user: User): Observable<User> {
+    return this.httpClient.post<User>(
       `${this.PHP_API_SERVER}/api/create.php`,
-      policy
+      user
     );
   }
 }
