@@ -1,6 +1,6 @@
 # Ivd24
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.12, [PHP](https://windows.php.net/download/) version 7.4.9 and [MySQL](https://dev.mysql.com/downloads/installer/) version 8.0.21.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.12, [Bootstrap](https://getbootstrap.com/) version 4.5,  [PHP](https://windows.php.net/download/) version 7.4.9 and [MySQL](https://dev.mysql.com/downloads/installer/) version 8.0.21.
 
 ## Resources used
 
@@ -14,9 +14,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-1. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-2. Run `php -S 127.0.0.1:8080 -t backend` to start the backend server
-3. Setup the MySQL Database according to 'backend\api\database.php' settings or change this file for your needs.
+1. Download the project code and navigate inside the folder `cd ivd24`. Install PHP and MySQL following the official documentation.
+2. Install the npm packages with `npm install` for the project.
+3. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+4. Run `php -S 127.0.0.1:8080 -t backend` to start the backend server
+5. Setup the MySQL Database according to 'backend\api\database.php' settings or change this file for your needs.
    - Create a new database 'userdata'
    - create a new table 'registeredUsers' `CREATE TABLE registeredUsers(id INT(6) PRIMARY KEY AUTO_INCREMENT , gender VARCHAR(1), firstname VARCHAR(30), lastname VARCHAR(30), address VARCHAR(30), postCode VARCHAR(30), city VARCHAR(30), country VARCHAR(30), company VARCHAR(30), phone VARCHAR(30), mobilePhone VARCHAR(30), fax VARCHAR(30), email VARCHAR(50), userName VARCHAR(50), password VARCHAR(50), passwordRepeat VARCHAR(50));`
 
