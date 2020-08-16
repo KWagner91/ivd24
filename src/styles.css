@@ -12,6 +12,7 @@ html {
   scroll-behavior: smooth;
   font-family: "Source Sans Pro";
   height: 100%;
+  scroll-padding-top: 55px; /* Navbar fix - https://css-tricks.com/fixed-headers-on-page-links-and-overlapping-content-oh-my/ */
 }
 
 #navbar {
