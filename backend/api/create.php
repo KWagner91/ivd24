@@ -1,66 +1,60 @@
 <?php
-require 'database.php';
+// Tutorial from Brad Traversy (https://github.com/bradtraversy/php_rest_myblog/blob/master/models/Post.php)
+  // Headers
+  header('Access-Control-Allow-Origin: *');
+  header('Content-Type: application/json');
+  header('Access-Control-Allow-Methods: POST');
+  header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization,X-Requested-With');
 
-// Get the posted data.
-$postdata = file_get_contents("php://input");
+  include_once 'database.php';
+  include_once 'User.php';
 
-if(isset($postdata) && !empty($postdata))
-{
-  // Extract the data.
-  $request = json_decode($postdata);
+  // Instantiate DB & connect
+  $database = new Database();
+  $db = $database->connect();
 
- /*  // Validate.
-  if(trim($request->number) === '' || (float)$request->amount < 0)
-  {
-    return http_response_code(400);
-  } */
+  // Instantiate blog post object
+  $user = new User($db);
 
-  // Sanitize.
-  $gender = mysqli_real_escape_string($con, trim($request->gender));
-  $firstName = mysqli_real_escape_string($con, trim($request->firstName));
-  $lastName = mysqli_real_escape_string($con, trim($request->lastName));
-  $address = mysqli_real_escape_string($con, trim($request->address));
-  $postCode = mysqli_real_escape_string($con, trim($request->postCode));
-  $city = mysqli_real_escape_string($con, trim($request->city));
-  $country = mysqli_real_escape_string($con, trim($request->country));
-  $company = mysqli_real_escape_string($con, trim($request->company));
-  $phone = mysqli_real_escape_string($con, trim($request->phone));
-  $mobilePhone = mysqli_real_escape_string($con, trim($request->mobilePhone));
-  $fax = mysqli_real_escape_string($con, trim($request->fax));
-  $email = mysqli_real_escape_string($con, trim($request->email));
-  $userName = mysqli_real_escape_string($con, trim($request->userName));
-  $password = mysqli_real_escape_string($con, trim($request->password));
-  $passwordRepeat = mysqli_real_escape_string($con, trim($request->passwordRepeat));
+  // Get raw posted data
+  $data = json_decode(file_get_contents("php://input"));
 
-  // Create.
-  $sql = "INSERT INTO `registeredUsers`(`id`, `gender`,`firstName`,`lastName`, `address`, `postCode`, `city`, `country`, `company`, `phone`, `mobilePhone`, `fax`, `email`, `userName`, `password`, `passwordRepeat`)
-  VALUES (null,'{$gender}','{$firstName}', '{$lastName}', '{$address}', '{$postCode}', '{$city}', '{$country}', '{$company}', '{$phone}', '{$mobilePhone}', '{$fax}', '{$email}', '{$userName}', '{$password}', '{$passwordRepeat}')";
+  $user->gender = $data->gender;
+  $user->firstName = $data->firstName;
+  $user->lastName = $data->lastName;
+  $user->address = $data->address;
+  $user->postCode = $data->postCode;
+  $user->city = $data->city;
+  $user->country = $data->country;
+  $user->company = $data->company;
+  $user->phone = $data->phone;
+  $user->mobilePhone = $data->mobilePhone;
+  $user->fax = $data->fax;
+  $user->email = $data->email;
+  $user->userName = $data->userName;
+  $user->password = $data->password;
+  $user->passwordRepeat = $data->passwordRepeat;
 
-  if(mysqli_query($con,$sql))
-  {
+  // Create Category
+  if($user->create()) {
     http_response_code(201);
-    $registeredUsers = [
-      'gender' => $gender,
-      'firstName' => $firstName,
-      'lastName' => $lastName,
-      'address' => $address,
-      'postCode' => $postCode,
-      'city' => $city,
-      'country' => $country,
-      'company' => $company,
-      'phone' => $phone,
-      'mobilePhone' => $mobilePhone,
-      'fax' => $fax,
-      'email' => $email,
-      'userName' => $userName,
-      'password' => $password,
-      'passwordRepeat' => $passwordRepeat,
-      'id'    => mysqli_insert_id($con)
-    ];
-    echo json_encode($registeredUsers);
+    echo json_encode($user);
+    // Email (Tutorial from https://www.tutorialspoint.com/php/php_sending_emails.htm)
+    $to = $data->email;
+    $subject = "Ivd24 und Ebay Kleinanzeigen Registrierung";
+    $message = "Vielen Dank für Ihre Registrierung";
+    $header = "From:abc@somedomain.com \r\n";
+    $header .= "Content-type: text/html\r\n";
+    $retval = mail ($to,$subject,$message,$header);
+    if( $retval == true ) {
+       echo "Message sent successfully...";
+    }else {
+       echo "Message could not be sent...";
+    }
+
+  } else {
+    http_response_code(404);
+    echo json_encode(
+      array('message' => 'User Not Created')
+    );
   }
-  else
-  {
-    http_response_code(422);
-  }
-}

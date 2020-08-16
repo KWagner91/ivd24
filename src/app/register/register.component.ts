@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(form) {
     if (this.passwordEntered === this.passwordEnteredRepeat) {
       this.apiService.createPolicy(form.value).subscribe((user: User) => {
-        console.log('Policy created, ', user);
+        console.log('New User was created, ', JSON.stringify(user));
         alert('Sie haben sich erfolgreich registriert!');
       });
     } else {

@@ -1,22 +1,24 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+// Tutorial from Brad Traversy (https://github.com/bradtraversy/php_rest_myblog/blob/master/models/Post.php)
+  class Database {
+    // DB Params
+    private $host = 'localhost';
+    private $db_name = 'userdata';
+    private $username = 'root';
+    private $password = 'ivd24';
+    private $conn;
 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', 'ivd24');
-define('DB_NAME', 'userdata');
+    // DB Connect
+    public function connect() {
+      $this->conn = null;
 
-function connect()
-{
-  $connect = mysqli_connect(DB_HOST ,DB_USER ,DB_PASS ,DB_NAME);
+      try {
+        $this->conn = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->db_name, $this->username, $this->password);
+        $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      } catch(PDOException $e) {
+        echo 'Connection Error: ' . $e->getMessage();
+      }
 
-  if (mysqli_connect_errno($connect)) {
-    die("Failed to connect:" . mysqli_connect_error());
+      return $this->conn;
+    }
   }
-  mysqli_set_charset($connect, "utf8");
-  return $connect;
-}
-
-$con = connect();
