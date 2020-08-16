@@ -1,11 +1,11 @@
 <?php
 // Tutorial from Brad Traversy (https://github.com/bradtraversy/php_rest_myblog/blob/master/models/Post.php)
   class User {
-    // DB stuff
+    // DB
     private $conn;
     private $table = 'registeredUsers';
 
-    // Post Properties
+    // User Properties
     public $id;
     public $gender;
     public $firstName;
@@ -28,7 +28,7 @@
         $this->conn = $db;
     }
 
-    // Create Post
+    // Create User
     public function create() {
         // Create query
         $query = 'INSERT INTO ' . $this->table . ' SET gender = :gender, firstName = :firstName, lastName = :lastName, address = :address, postCode = :postCode, city = :city, country = :country,
@@ -39,22 +39,22 @@
 
         // Clean data
         $this->gender = htmlspecialchars(strip_tags($this->gender));
-          $this->firstName = htmlspecialchars(strip_tags($this->firstName));
-          $this->lastName = htmlspecialchars(strip_tags($this->lastName));
-          $this->address = htmlspecialchars(strip_tags($this->address));
-          $this->postCode = htmlspecialchars(strip_tags($this->postCode));
-          $this->city = htmlspecialchars(strip_tags($this->city));
-          $this->country = htmlspecialchars(strip_tags($this->country));
-          $this->company = htmlspecialchars(strip_tags($this->company));
-          $this->phone = htmlspecialchars(strip_tags($this->phone));
-          $this->mobilePhone = htmlspecialchars(strip_tags($this->mobilePhone));
-          $this->fax = htmlspecialchars(strip_tags($this->fax));
-          $this->email = htmlspecialchars(strip_tags($this->email));
-          $this->userName = htmlspecialchars(strip_tags($this->userName));
-          $this->password = htmlspecialchars(strip_tags($this->password));
-          $this->passwordRepeat = htmlspecialchars(strip_tags($this->passwordRepeat));
+        $this->firstName = htmlspecialchars(strip_tags($this->firstName));
+        $this->lastName = htmlspecialchars(strip_tags($this->lastName));
+        $this->address = htmlspecialchars(strip_tags($this->address));
+        $this->postCode = htmlspecialchars(strip_tags($this->postCode));
+        $this->city = htmlspecialchars(strip_tags($this->city));
+        $this->country = htmlspecialchars(strip_tags($this->country));
+        $this->company = htmlspecialchars(strip_tags($this->company));
+        $this->phone = htmlspecialchars(strip_tags($this->phone));
+        $this->mobilePhone = htmlspecialchars(strip_tags($this->mobilePhone));
+        $this->fax = htmlspecialchars(strip_tags($this->fax));
+        $this->email = htmlspecialchars(strip_tags($this->email));
+        $this->userName = htmlspecialchars(strip_tags($this->userName));
+        $this->password = htmlspecialchars(strip_tags($this->password));
+        $this->passwordRepeat = htmlspecialchars(strip_tags($this->passwordRepeat));
 
-          // Bind data
+        // Bind data
         $stmt->bindParam(':gender', $this->gender);
         $stmt->bindParam(':firstName', $this->firstName);
         $stmt->bindParam(':lastName', $this->lastName);
@@ -71,7 +71,7 @@
         $stmt->bindParam(':password', $this->password);
         $stmt->bindParam(':passwordRepeat', $this->passwordRepeat);
 
-          // Execute query
+        // Execute query
         if($stmt->execute()) {
             return true;
       }
