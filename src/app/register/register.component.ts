@@ -11,8 +11,8 @@ import { ApiService } from '../api.service';
 export class RegisterComponent implements OnInit {
   constructor(private apiService: ApiService) {}
 
-  passwordEntered: String;
-  passwordEnteredRepeat: String;
+  passwordEntered: String = '';
+  passwordEnteredRepeat: String = '';
 
   ngOnInit(): void {}
 

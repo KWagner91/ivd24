@@ -40,7 +40,7 @@ if($user->create()) {
     http_response_code(201);
     echo json_encode($user);
     // Email (Tutorial from https://www.tutorialspoint.com/php/php_sending_emails.htm)
-    $to = $data->email;
+    /* $to = $data->email;
     $subject = "Ivd24 und Ebay Kleinanzeigen Registrierung";
     $message = "Vielen Dank für Ihre Registrierung";
     $header = "From:abc@somedomain.com \r\n";
@@ -50,7 +50,7 @@ if($user->create()) {
        echo "Message sent successfully...";
     } else {
        echo "Message could not be sent...";
-    }
+    } */
 
 } else {
     http_response_code(404);
